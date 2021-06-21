@@ -37,8 +37,9 @@ exit; % Comando para salir de la aplicación
 function BotonGrabar_Callback(hObject, eventdata, handles)
 clc %limpia la pantalla
 % clear all
-global y fs; %Establecer variables globales
-nBits = 16;
+global y fs;%Establecer variables globales
+fs = 44100;
+nBits = 8;
 nChannels = 2;
 ID = -1;
 
@@ -71,7 +72,7 @@ msgbox('Grabación Terminada');
 guidata(hObject, handles);
 
 function BotonReproducir_Callback(hObject, eventdata, handles)
-[y,fs]=audioread('voz'); %Lectura del archivo grabado
+[y,fs]=audioread('voz.wav'); %Lectura del archivo grabado
 soundsc(y,fs); %Reproducción de archivo grabado
 
 
